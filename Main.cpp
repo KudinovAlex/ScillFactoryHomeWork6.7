@@ -7,9 +7,9 @@
 
 using namespace std;
 
-int getInt(int minVal, int maxVal) {
+int getInt(const int &minValue, const int &maxValue) {
 	while (true) {
-		cout << "(введите число от " << minVal <<" до " << maxVal << "): ";
+		cout << "(введите число от " << minValue <<" до " << maxValue << "): ";
 		int value;
 		cin >> value;
 		if (cin.fail()) {
@@ -18,7 +18,7 @@ int getInt(int minVal, int maxVal) {
 		}
 		else {
 			cin.ignore(32767, '\n');
-			if (value >= minVal && value <= maxVal) return value;
+			if (value >= minValue && value <= maxValue) return value;
 		}
 		cout << "Неверный ввод, попробуйте еще раз ";
 	}
