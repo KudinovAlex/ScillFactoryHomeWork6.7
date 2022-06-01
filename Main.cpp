@@ -7,9 +7,9 @@
 
 using namespace std;
 
-int getInt() {
+int getInt(int minVal, int maxVal) {
 	while (true) {
-		cout << "(введите число от 0 до 5): ";
+		cout << "(введите число от " << minVal <<" до " << maxVal << "): ";
 		int value;
 		cin >> value;
 		if (cin.fail()) {
@@ -18,7 +18,7 @@ int getInt() {
 		}
 		else {
 			cin.ignore(32767, '\n');
-			if (value >= 0 && value <= 5) return value;
+			if (value >= minVal && value <= maxVal) return value;
 		}
 		cout << "Неверный ввод, попробуйте еще раз ";
 	}
@@ -41,7 +41,7 @@ int main()
 
 	while (open) {
 		cout << "Выберите товар: 1 - TV, 2 - StrangeDevice, 3 - CellPhone, 4 - Appliances, 5 - Device, 0 - Выход" << endl;
-		int select = getInt();
+		int select = getInt(0, storeSize);
 
 		if (select == 0) {
 			open = false;
